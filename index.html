@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-901 Study Hub</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --accent: #4da3e8; --accent-light: #1c2a3a; --text: #e6edf3; --muted: #98a6b5;
+    --border: #2d3745; --bg: #12161d; --card: #1b212b;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", -apple-system, Arial, sans-serif; color: var(--text);
+         background: var(--bg); margin: 0; line-height: 1.6; }
+  .container { max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  h1 { font-size: 1.7rem; color: var(--accent); border-bottom: 3px solid var(--accent);
+       padding-bottom: 0.5rem; margin-top: 0; }
+  .lead { color: var(--muted); }
+  a.card { display: block; background: var(--card); border: 1px solid var(--border);
+           border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0; text-decoration: none;
+           color: var(--text); transition: border-color 0.15s; }
+  a.card:hover { border-color: var(--accent); }
+  a.card h2 { margin: 0 0 0.35rem; font-size: 1.15rem; color: var(--accent); }
+  a.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>AI-901 Study Hub</h1>
+  <p class="lead">Microsoft Azure AI Fundamentals — exam prep material. Pass mark: 700/1000 (70%).</p>
+
+  <a class="card" href="AI-901-Study-Guide.html">
+    <h2>Study Guide</h2>
+    <p>Exam overview, domain weights, Responsible AI principles, workload matcher, 3-week study plan.</p>
+  </a>
+
+  <a class="card" href="Hands-On-Foundry-Labs.html">
+    <h2>Hands-On Foundry Labs</h2>
+    <p>7 labs mapped to every Domain 2 sub-objective, with full Python client code.</p>
+  </a>
+
+  <a class="card" href="quiz.html">
+    <h2>Practice Quiz</h2>
+    <p>200 questions, shuffled every run. Instant feedback, per-domain score breakdown.</p>
+  </a>
+</div>
+</body>
+</html>

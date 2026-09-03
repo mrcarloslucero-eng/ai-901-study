@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-901: Microsoft Azure AI Fundamentals — Personalized Study Guide</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --accent: #4da3e8;
+    --accent-light: #1c2a3a;
+    --text: #e6edf3;
+    --muted: #98a6b5;
+    --border: #2d3745;
+    --bg: #12161d;
+    --card: #1b212b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+  }
+  h3 { font-size: 1.1rem; margin-top: 1.75rem; }
+  blockquote {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    margin: 1rem 0;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: var(--card);
+    font-size: 0.95rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.85rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--accent-light); color: var(--text); }
+  tr:nth-child(even) td { background: #1f2632; }
+  code {
+    font-family: Consolas, "Cascadia Code", monospace;
+    background: #262f3b;
+    color: #cdd9e5;
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+  ul, ol { padding-left: 1.5rem; }
+  li { margin: 0.35rem 0; }
+  a { color: var(--accent); }
+  strong { color: #fff; }
+  .footer-note {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media print {
+    .container { max-width: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>AI-901: Microsoft Azure AI Fundamentals — Personalized Study Guide</h1>
+
+<blockquote>
+  Built Aug 2026 from the official <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901">AI-901 study guide</a> (skills measured as of April 15, 2026).<br>
+  Profile: completed the MS Learn AI-901 tutorials, has an Azure account, wants hands-on Foundry practice. Pass = 700/1000.
+</blockquote>
+
+<h2>Exam at a glance</h2>
+<table>
+  <tr><th>Item</th><th>Detail</th></tr>
+  <tr><td>Exam</td><td>AI-901 — Microsoft Azure AI Fundamentals (successor to AI-900, retired June 30, 2026)</td></tr>
+  <tr><td>Passing score</td><td>700 (scale of 100–1000)</td></tr>
+  <tr><td>Practice assessment</td><td>50 questions on AI Skills Navigator (sign-in required)</td></tr>
+  <tr><td>Expected background</td><td>Basic Python, familiarity with Azure resources</td></tr>
+  <tr><td>Key change from AI-900</td><td>AI-900 asked you to <em>describe</em> services; AI-901 asks you to <em>build</em> with them</td></tr>
+</table>
+
+<h2>Domain weights</h2>
+<table>
+  <tr><th>Domain</th><th>Weight</th><th>Your focus</th></tr>
+  <tr><td>1. Identify AI concepts and capabilities</td><td>40–45%</td><td>Mostly covered by the tutorials you finished — polish only</td></tr>
+  <tr><td>2. Implement AI solutions by using Microsoft Foundry</td><td>55–60%</td><td><strong>The core — spend most of your time here</strong></td></tr>
+</table>
+
+<h2>Domain 1 — Identify AI concepts and capabilities (40–45%)</h2>
+
+<h3>Responsible AI — the six principles</h3>
+<p>Match each scenario to its principle:</p>
+<table>
+  <tr><th>Principle</th><th>Signal phrases in questions</th></tr>
+  <tr><td>Fairness</td><td>"performs worse for one group", "biased training data"</td></tr>
+  <tr><td>Reliability &amp; safety</td><td>"hallucinations", "harmful content", "adversarial inputs"</td></tr>
+  <tr><td>Privacy &amp; security</td><td>"personal data", "encryption", "data retention"</td></tr>
+  <tr><td>Inclusiveness</td><td>"accents", "disabilities", "diverse users"</td></tr>
+  <tr><td>Transparency</td><td>"users know it's AI", "explainable decisions"</td></tr>
+  <tr><td>Accountability</td><td>"human review", "audit trail", "who is responsible"</td></tr>
+</table>
+
+<h3>Model components and configurations</h3>
+<ul>
+  <li>Generative models predict tokens sequentially — outputs are probabilistic, not deterministic.</li>
+  <li>A <strong>deployment</strong> is a named, hosted instance of a model in your project; code references it by deployment name.</li>
+  <li>Key parameters: <strong>temperature</strong> (higher = more random), <strong>max output tokens</strong> (caps length), <strong>top_p</strong>, system message. Low temperature for structured extraction; higher for creative work.</li>
+  <li>Choose models by capability: text-only vs multimodal (vision/audio), mini-tier for cost, larger for quality.</li>
+</ul>
+
+<h3>Workload scenario matcher</h3>
+<table>
+  <tr><th>Keywords</th><th>Workload</th></tr>
+  <tr><td>People/places/dates in text</td><td>Entity recognition (NER)</td></tr>
+  <tr><td>Positive/negative review</td><td>Sentiment analysis</td></tr>
+  <tr><td>Key words for a search index</td><td>Keyword extraction</td></tr>
+  <tr><td>Shorter digest of a document</td><td>Summarization</td></tr>
+  <tr><td>Voice → text / text → voice</td><td>Speech recognition / speech synthesis</td></tr>
+  <tr><td>Labels/objects in photos</td><td>Computer vision (object detection)</td></tr>
+  <tr><td>New image from a description</td><td>Image generation</td></tr>
+  <tr><td>Fields from invoices/forms</td><td>Information extraction (Content Understanding)</td></tr>
+  <tr><td>Multi-step tasks with tool use</td><td>Agentic AI</td></tr>
+</table>
+
+<h2>Domain 2 — Implement AI solutions by using Microsoft Foundry (55–60%)</h2>
+
+<p>Four sub-domains, each covered by a lab in <code>Hands-On-Foundry-Labs.md</code>:</p>
+<ol>
+  <li><strong>Generative AI apps and agents</strong> — effective system/user prompts; deploy a model and use it in the portal; lightweight chat client with the Foundry SDK; single-agent solution in the portal; lightweight client for an agent. (Labs 1–4)</li>
+  <li><strong>Text and speech</strong> — lightweight text-analysis app; spoken prompts to a multimodal model; apps on Azure Speech in Foundry Tools. (Lab 5)</li>
+  <li><strong>Vision and image generation</strong> — interpret images in prompts; generate new images; lightweight vision app. (Lab 6)</li>
+  <li><strong>Content Understanding</strong> — extract from documents/forms, images, audio, video; lightweight extraction app. (Lab 7)</li>
+</ol>
+
+<p>The exam expects small Python ("lightweight") clients: <code>azure-ai-projects</code> SDK, <code>DefaultAzureCredential</code> (<code>az login</code>), an OpenAI client obtained from <code>AIProjectClient</code>. Full working patterns are in the labs file and the <a href="https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code">official quickstart</a>.</p>
+
+<h2>Study plan (~3 weeks)</h2>
+
+<p><strong>Week 1 — Baseline + Domain 1 polish.</strong> Take the 50-question practice test cold; log every miss by objective. Re-study missed Domain 1 objectives only; self-test by rewriting the two tables above from memory.</p>
+
+<p><strong>Week 2 — Domain 2 core.</strong> Labs 1–4 (deploy, prompts, chat client, agent). After each lab, redo it from a blank project without the instructions.</p>
+
+<p><strong>Week 3 — Modalities + exam prep.</strong> Labs 5–7 (speech, vision, Content Understanding). Retake the practice test targeting 85%+. Try the exam sandbox so the question UI holds no surprises.</p>
+
+<p><strong>Question bank:</strong> 200 questions live in <code>question_bank.py</code>; run <code>python quiz.py</code> for 20 random ones (<code>python quiz.py 40</code> for 40, <code>--domain1</code> for Domain 1 only). Options are re-shuffled every run, so answer positions are random.</p>
+
+<h2>Key resources</h2>
+<ul>
+  <li><a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901">Official AI-901 study guide</a></li>
+  <li><a href="https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code">Foundry SDK quickstart</a></li>
+  <li><a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview">Foundry SDK overview</a></li>
+  <li>Tim Warner's <a href="https://github.com/timothywarner-org/ai901">ai901 repo</a> — 16 exam-aligned lessons with runnable Foundry demos</li>
+  <li><a href="https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901">Exam AI-901 page</a></li>
+</ul>
+
+<p class="footer-note">Companion files: <code>Hands-On-Foundry-Labs.md</code> (labs 1–7), <code>question_bank.py</code> + <code>quiz.py</code> (practice questions).</p>
+
+</div>
+</body>
+</html>
